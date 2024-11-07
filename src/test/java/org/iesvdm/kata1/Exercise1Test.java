@@ -16,11 +16,15 @@ public class Exercise1Test extends PetDomainForKata
     @Tag("KATA")
     public void getFirstNamesOfAllPeople()
     {
-        //TODO
         // Replace empty list firstNames with a stream transformation on people.
         List<String> firstNames = new ArrayList<>(); // this.people...
 
         var expectedFirstNames = Arrays.asList("Mary", "Bob", "Ted", "Jake", "Barry", "Terry", "Harry", "John");
+
+        firstNames = this.people.stream()
+                .map(Person::getFirstName)
+                .toList();
+
         Assertions.assertIterableEquals(expectedFirstNames, firstNames);
     }
 
